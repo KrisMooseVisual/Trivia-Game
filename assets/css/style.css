@@ -1,0 +1,37 @@
+header {
+    color: black;
+    font-size: 40px;
+    font-family: cursive Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    
+}
+
+h1 {
+    background-color: red;
+}
+
+h2 {
+    font-size: 50px;
+    background-color: yellowgreen;
+    padding: 5px;
+    box-shadow: -16px;
+}
+
+h3 {
+    font-size: 30px;
+    background-color: red
+    
+}
+
+input[type=submit]{
+    width: 20em; height: 2em;
+}
+
+body {
+    margin:50px 0px; padding:0px;
+    text-align:center;
+    align-items:center;
+}
+h4{
+    font-size: 30px;
+    block-size: 20px;
+}

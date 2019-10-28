@@ -1,146 +1,171 @@
+
+//60 second countdown display
+window.onload = function(){
+    
+    $("#start").on("click",start);
+}
+
+var intervalID;
+
+var clockRunning = false;
+var time = 0;
+
+$("#display").text("00:00");
+
+function start() {
+    if (!clockRunning){
+        intervalID = setInterval(count, 1000);
+        clockRunning = true;
+    }
+}
+
+function count(){
+    time++;
+
+    var converted = timeConverter(time);
+    
+    var minutes = Math.floor(t / 60);
+  var seconds = t - (minutes * 60);
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  if (minutes === 0) {
+    minutes = "00";
+  }
+  else if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  return minutes + ":" + seconds;
+
+// start function for right answers.
+
 $(document).ready(function () {
 
 
     //question/answer array set up
     questions = [
         {
-            question1: "What is Spider-Man's real name?",
-            answer1: "Peter Pepper?",
-            answer2: "Peter Parker",
-            answer3: "Peter Pan",
-            answer4: "Pepé Le'Parkour",
-            rightAnswer: "Peter Parker"
-        },
-
-
-        {
-            question2: "Thor is also known as the 'God of Thunder'. What other name is he known as?",
-            answer1: "M.C. Hammer",
-            answer2: "Zeus",
-            answer3: "Beowulf",
-            answer4: "Odinson",
-            rightAnswer: "Odinson"
+            question: "What is Spider-Man's real name?",
+            wrongAnswer: "Peter Pepper?",
+            rightAnswer: "Peter Parker",
+            wrongAnswer: "Peter Pan",
+            wrongAnswer: "Pepé Le'Parkour",
+            
         },
         {
-            question3: "In 'Gardians of the Galaxy;, what is the character Groot known for saying",
-            answer1: "I am Groot",
-            answer2: "I love boots",
-            answer3: "What you talkin' 'bout Willis",
-            answer4: "Hodor",
-            rightAnswer: "I am Groot"
+            question: "Thor is also known as the 'God of Thunder'. What other name is he known as?",
+            wrongAnswer: "M.C. Hammer",
+            wrongAnswer: "Zeus",
+            wrongAnswer: "Beowulf",
+            rightAnswer: "Odinson",
+            
         },
         {
-            question4: "X-Men member Storm has great power over the weather, but what is her greatest weakness",
-            answer1: "Fear of Snakes",
-            answer2: "Claustrophobia",
-            answer3: "Professor X's breath",
-            answer4: "Fear of non-mutants",
-            rightAnswer: "Claustrophobia"
+            question: "In 'Gardians of the Galaxy;, what is the character Groot known for saying",
+            rightAnswer: "I am Groot",
+            wrongAnswer: "I love boots",
+            wrongAnswer: "What you talkin' 'bout Willis",
+            wrongAnswer: "Hodor",
+    
         },
         {
-            question5: "Wolverine's bones and claws are made of what type of indistructable metal?",
-            answer1: "Adamantium",
-            answer2: "Vibranium",
-            answer3: "Platinum",
-            answer4: "Tungston",
-            rightAnswer: "Adamantium"
+            question: "X-Men member Storm has great power over the weather, but what is her greatest weakness",
+            wrongAnswer: "Fear of Snakes",
+            rightAnswer: "Claustrophobia",
+            wrongAnswer: "Professor X's breath",
+            wrongAnswer: "Fear of non-mutants",
+            
         },
         {
-            question6: "Dr. Jekyll is to Mr. Hyde, as Bruce Banner is to _______?",
-            answer1: "The Smash",
-            answer2: "The Hulk",
-            answer3: "The Thing",
-            answer4: "El Hombre Fuerte y Verde",
-            rightAnswer: "The Hulk"
+            question: "Wolverine's bones and claws are made of what type of indistructable metal?",
+            rightAnswer: "Adamantium",
+            wrongAnswer: "Vibranium",
+            wrongAnswer: "Platinum",
+            wrongAnswer: "Tungston",
+            
         },
         {
-            question7: "T'Challa is the king of Wakanda and is thus knowns as...",
-            answer1: "The Black Panther",
-            answer2: "The Pink Panther",
-            answer3: "Black Ranger",
-            answer4: "Little Red Riding Hood",
-            rightAnswer: "The Black Panther"
+            question: "Dr. Jekyll is to Mr. Hyde, as Bruce Banner is to _______?",
+            wrongAnswer: "The Smash",
+            rightAnswer: "The Hulk",
+            wrongAnswer: "The Thing",
+            wrongAnswer: "El Hombre Fuerte y Verde",
+            
         },
         {
-            question8: "The X-Men's main arch-enemy is known as who",
-            answer1: "Megatron",
-            answer2: "Frieza",
-            answer3: "The Jester",
-            answer4: "Magneto",
-            rightAnswer: "Magneto"
+            question: "T'Challa is the king of Wakanda and is thus knowns as...",
+            rightAnswer: "The Black Panther",
+            wrongAnswer: "The Pink Panther",
+            wrongAnswer: "Black Ranger",
+            wrongAnswer: "Little Red Riding Hood",
+            
         },
         {
-            question9: "Frank Castle is a vigilante crime figher known as The '_______'",
-            answer1: "Publisher",
-            answer2: "Deliverer",
-            answer3: "Punisher",
-            answer4: "Exonerater",
-            rightAnswer: "Punisher"
+            question: "The X-Men's main arch-enemy is known as who",
+            wrongAnswer: "Megatron",
+            wrongAnswer: "Frieza",
+            wrongAnswer: "The Jester",
+            rightAnswer: "Magneto",
+            
         },
         {
-            question10: "Thanos, the scurge of the universe, seeks 5 stones known as the ______ Stones.",
-            answer1: "Inifinity",
-            answer2: "Multiple",
-            answer3: "Precious",
-            answer4: "Sparkly",
-            rightAnswer: "Inifinity"
+            question: "Frank Castle is a vigilante crime figher known as The '_______'",
+            wrongAnswer: "Publisher",
+            wrongAnswer: "Deliverer",
+            rightAnswer: "Punisher",
+            wrongAnswer: "Exonerater",
+            
         },
         {
-            question11: "After voluntarily being experimented on by the U.S. Army, Steve Rogers transformed to who?",
-            answer1: "Captain Planet",
-            answer2: "Captain Kangaroo",
-            answer3: "Captain America",
-            answer4: "Colonal Sanders",
-            rightAnswer: "Captain America"
+            question: "Thanos, the scurge of the universe, seeks 5 stones known as the ______ Stones.",
+            rightAnswer: "Inifinity",
+            wrongAnswer: "Multiple",
+            wrongAnswer: "Precious",
+            wrongAnswer: "Sparkly",
+            
         },
         {
-            question12: "The super hero vampire fighting Blade, is half human and half ______.",
-            answer1: "Lycan",
-            answer2: "Fairy",
-            answer3: "Vampire",
-            answer4: "Elf",
-            rightAnswer: "Vampire"
+            question: "After voluntarily being experimented on by the U.S. Army, Steve Rogers transformed to who?",
+            wrongAnswer: "Captain Planet",
+            wrongAnswer: "Captain Kangaroo",
+            rightAnswer: "Captain America",
+            wrongAnswer: "Colonal Sanders",
+            
         },
         {
-            question13: "The hero known as Rocket is what kind of earth animal?",
-            answer1: "Racoon",
-            answer2: "Opossum",
-            answer3: "Rabbit",
-            answer4: "Rhino",
-            rightAnswer: "Racoon"
+            question: "The super hero vampire fighting Blade, is half human and half ______.",
+            wrongAnswer: "Lycan",
+            wrongAnswer: "Fairy",
+            rightAnswer: "Vampire",
+            wrongAnswer: "Elf",
+            
         },
         {
-            question14: "Tony Stark proundly annouced that he is which super hero?",
-            answer1: "Slim Shady",
-            answer2: "Iron Giant",
-            answer3: "Iron Man",
-            answer4: "Tin Man",
-            rightAnswer: "Iron Man"
+            question: "The hero known as Rocket is what kind of earth animal?",
+            rightAnswer: "Racoon",
+            wrongAnswer: "Opossum",
+            wrongAnswer: "Rabbit",
+            wrongAnswer: "Rhino",
+            
         },
         {
-            question15: "Peter Quill is an intergalactic outlaw. His cloest friends calls him 'Quill', but he'd prefer you call him 'Star_____'.",
-            answer1: "Trek",
-            answer2: "Lord",
-            answer3: "Gate",
-            answer4: "Light",
-            rightAnswer: "Lord"
+            question: "Tony Stark proundly annouced that he is which super hero?",
+            wrongAnswer: "Slim Shady",
+            wrongAnswer: "Iron Giant",
+            rightAnswer: "Iron Man",
+            wrongAnswer: "Tin Man",
+            
+        },
+        {
+            question: "Peter Quill is an intergalactic outlaw. His cloest friends calls him 'Quill', but he'd prefer you call him 'Star_____'.",
+            wrongAnswer: "Trek",
+            rightAnswer: "Lord",
+            wrongAnswer: "Gate",
+            wrongAnswer: "Light",
+            
         }
-    ]
-
-    var count = 60, timer = setInterval(function () {
-        $("#counter").html(count--);
-        if (count == 1) clearInterval(timer);
-    }, 1000);
-
-    $(".btn").on("click", function () {
-        var userChoice = $(this).text();
-        console.log(userChoice);
-        if (userChoice === questions[questionIndex].correct) {
-            correct++;
-        }
-
-        var time = 90;
-
-        var rightAnswer;
-        var wrongAnswer;
-        var intervalId
+    ]   
+}

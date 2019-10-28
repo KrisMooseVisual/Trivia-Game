@@ -8,51 +8,85 @@
     <title>Marvel™ Trivia Game</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/javascrip/"></script>
+    <script type="text/javascript" src="assets/javascript/">
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
         </script>
+
 </head>
 
 
 
 <body background="assets/images/chibi-marvel.jpg">
-    
+
     <!--Dynamic header title-->
-    <center>
+    
         <header>
             <img src="assets/images/2000px-MarvelLogo.png" alt="marvel" height="100" width="300">
-<!--Dynamic header-->
+            <!--Dynamic header-->
             <h1>MARVEL™ SUPER HERO TRIVIA!</h1>
         </header>
-    </center>
-    
-
-
-
-<!--click button will take you to another page to begin game-->
-    <div class="btnContainer">
-        <button type="button" class="btn btn-default btn-lg btn-primary startBtn">
-            <h2>•You have 60 seconds to complete 15 multi-choice questions•</h2>
-            <h2>CLICK HERE TO START GAME AND COUNTDOWN!</h2>
-        </button>
-    </div>
-    
-
-    <div>
+        <br>
         
+    
+
+    <div id="wrapper">
+        <div id="display"><h4>00:00</h4></div>
+
+        <div id="buttons">
+            <button id="start">Start Timer!</button>
+        </div>
     </div>
 
-    <!--<center>
-        <div id="wrapper">
-            <div id="display">01:20</div>
-            <!--count down to begin with pressing "click button"
-            <button id="button">CLICK HERE TO START GAME AND COUNTDOWN!</button>
-        </div>
-    </center>-->
+
+    <form>
+        <h3>What is Spider-Man's real name?<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Peter Pepper<br>
+            <input type="radio" name="answer" value="rightAnswer"> Peter Parker<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Peter Pan<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Pepé Le'Parkour<br></h3>
+    </form>
+
+    <form>
+        <h3>Thor is also known as the 'God of Thunder'. What other name is he known as?<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> M.C. Hammer<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Zeus<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Beowulf<br>
+            <input type="radio" name="answer" value="rightAnswer" checked> Odinson<br></h3>
+    </form>
+
+    <form>
+        <h3>In 'Gardians of the Galaxy;, what is the character Groot known for saying<br>
+            <input type="radio" name="answer" value="rightAnswer" checked> I am Groot<br>
+            <input type="radio" name="answer" value="wrongAnswer"> I love boots<br>
+            <input type="radio" name="answer" value="wrongAnswer"> What you talkin' 'bout Willis<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Hodor<br></h3>
+    </form>
+
+    <form>
+        <h3>X-Men member Storm has great power over the weather, but what is her greatest weakness<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Fear of Snakes<br>
+            <input type="radio" name="answer" value="rightAnswer"> Claustrophobia<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Professor X's breath<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Fear of non-mutants<br></h3>
+    </form>
+
+    <form>
+        <h3>Wolverine's bones and claws are made of what type of indistructable metal?<br>
+            <input type="radio" name="answer" value="rightAnswer" checked> Adamantium<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Vibranium<br>
+            <input type="radio" name="answer" value="wrongAnswer"> Platinum<br>
+            <input type="radio" name="answer" value="wrongAnswer" checked> Tungston<br></h3>
+    </form>
+
+   <center> <input type="submit"> </center>
+
+
+
 
 
     <!--JavaScript starts-->
-    <script type="text/javascript"> 
+    <script type="text/javascript">
     
     </script> </body> </html>
